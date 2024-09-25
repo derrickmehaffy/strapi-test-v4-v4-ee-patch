@@ -1,0 +1,18 @@
+diff --git a/node_modules/@strapi/admin/dist/ee/server/index.js b/node_modules/@strapi/admin/dist/ee/server/index.js
+index 35b6a8d..8786851 100644
+--- a/node_modules/@strapi/admin/dist/ee/server/index.js
++++ b/node_modules/@strapi/admin/dist/ee/server/index.js
+@@ -1559,9 +1559,10 @@ const forgotPassword = async ({ email: email2 } = {}) => {
+   }
+   const resetPasswordToken = getService("token").createToken();
+   await getService("user").updateById(user2.id, { resetPasswordToken });
+-  const url = `${utils$1.getAbsoluteAdminUrl(
+-    strapi.config
+-  )}/auth/reset-password?code=${resetPasswordToken}`;
++  // const url = `${utils$1.getAbsoluteAdminUrl(
++  //   strapi.config
++  // )}/auth/reset-password?code=${resetPasswordToken}`;
++  const url = `myhost.com/auth/reset-password?code=${resetPasswordToken}`;
+   return strapi.plugin("email").service("email").sendTemplatedEmail(
+     {
+       to: user2.email,
